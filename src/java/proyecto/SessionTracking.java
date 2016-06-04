@@ -20,6 +20,6 @@ public class SessionTracking extends HttpServlet {
         sesion.setAttribute(UsName, UsPass);
         String id = sesion.getId();
         out.println(id);
-        response.sendRedirect("mainPage.html");
+        response.sendRedirect("mainPage");
     }
 }
