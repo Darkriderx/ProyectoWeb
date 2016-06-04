@@ -27,24 +27,41 @@ public class histFrec extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Histograma de frecuencias</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<div id='histograma'>");
-                out.println("<form id='HistForm'>");
-                    out.println("<label for='numRect'>N&uacute;mero de rect:</label>");
-                    out.println("<input type='text' id='numRect' />");
-                out.println("</form>");
-            out.println("</div>");
-            out.println("</body>");
-            out.println("</html>");
+            out.println("<!DOCTYPE html>\n" +
+"<html>\n" +
+"<head>\n" +
+"	<meta charset=\"utf-8\">﻿\n" +
+"	<link rel=\"stylesheet\" type=\"text/css\" href=\"css/histFrec.css\">\n" +
+"	<title>Histograma de frecuencia</title>\n" +
+"	<script type=\"text/javascript\" src=\"js/jquery-1.12.3.min.js\" /></script>\n" +
+"	<script type=\"text/javascript\" src=\"js/jcanvas.js\"></script>\n" +
+"	<script type=\"text/javascript\" src=\"js/dinamicInput.js\"></script>\n" +
+"	<script type=\"text/javascript\" src=\"js/drawDiagram.js\"></script>\n" +
+"</head>\n" +
+"<body>\n" +
+"	<div id=\"contenedor\">\n" +
+"		<div id=\"histograma\">\n" +
+"			<form id=\"HistForm\"><!--Formulario para llenar los datos del histograma-->\n" +
+"				<input type=\"text\" name=\"numeroRectangulos\" id=\"numeroRectangulos\" placeholder=\"N&uacute;mero de rectangulos\" />\n" +
+"				<br>\n" +
+"				<input type=\"button\" id=\"actualizar\" name=\"actualizar\" value=\"Actualizar/Borrar\" class=\"boton\" />\n" +
+"\n" +
+"				<div id=\"table\"></div><!--Aqui se despelgará la tabla de input para llenar los datos del histograma-->\n" +
+"				<span id=\"error\"></span>\n" +
+"				<input type=\"button\" id=\"dibujar\" name=\"dibujar\" value=\"Dibujar!\" class=\"boton\" />\n" +
+"				<input type=\"button\" id=\"borrarCanvas\" name=\"borrarCanvas\" value=\"Borrar diagrama!\" class=\"boton\" />\n" +
+"			</form>\n" +
+"		</div>\n" +
+"		<canvas id=\"myCanvas\" height=\"500\" width=\"800\"></canvas><!--Linezo donde se dibujará el histograma-->\n" +
+"	</div>\n" +
+"	<div id=\"footer\"></div><!--Footer-->\n" +
+"</body>\n" +
+"</html>");
         }
     }
 }
