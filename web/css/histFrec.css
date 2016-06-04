@@ -1,0 +1,36 @@
+#contenedor {
+	position: relative;
+}
+
+#histograma {
+	height: 500px;
+	width: 210px;
+	max-height: 700px;
+	max-width: 500px;
+	position: absolute;
+	left: 0px;
+	overflow: auto;
+}
+
+#myCanvas {
+	margin-left: 200px; 
+}
+
+.boton {
+	font-family: sans-serif;
+	color: white;
+	background-color: black;
+	border: none;
+	text-align: center;
+	text-decoration: none;
+	padding: 2px;
+	margin: 5px;
+	transition-duration: 0.4s;
+	border: 2px solid #000;
+}
+
+.boton:hover {
+	background-color: white;
+	border: 2px solid #000;
+	color: black;
+}

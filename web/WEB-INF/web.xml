@@ -8,6 +8,10 @@
         <servlet-name>histFrec</servlet-name>
         <servlet-class>proyecto.histFrec</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>mainPage</servlet-name>
+        <servlet-class>proyecto.mainPage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SessionTracking</servlet-name>
         <url-pattern>/SessionTracking</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>histFrec</servlet-name>
         <url-pattern>/histFrec</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mainPage</servlet-name>
+        <url-pattern>/mainPage</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
