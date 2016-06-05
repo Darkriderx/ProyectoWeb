@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Luiz/Documents/NetBeansProjects/ProyectoWeb/web/css/mainPage.css</file>
-            <file>file:/C:/Users/Luiz/Documents/NetBeansProjects/ProyectoWeb/web/mainPage.html</file>
-            <file>file:/C:/Users/Luiz/Documents/NetBeansProjects/ProyectoWeb/web/index.html</file>
-            <file>file:/C:/Users/Luiz/Documents/NetBeansProjects/ProyectoWeb/src/java/proyecto/histFrec.java</file>
-            <file>file:/C:/Users/Luiz/Documents/NetBeansProjects/ProyectoWeb/src/java/proyecto/SessionTracking.java</file>
+            <file>file:/C:/Users/LarzRS/Documents/NetBeansProjects/ProyectoWeb/web/js/drawDiagram.js</file>
+            <file>file:/C:/Users/LarzRS/Documents/NetBeansProjects/ProyectoWeb/src/java/paquete/mainPage.java</file>
+            <file>file:/C:/Users/LarzRS/Documents/NetBeansProjects/ProyectoWeb/web/js/AjaxPaginas.js</file>
+            <file>file:/C:/Users/LarzRS/Documents/NetBeansProjects/ProyectoWeb/src/java/paquete/histogramaFrecuencia.java</file>
         </group>
     </open-files>
 </project-private>

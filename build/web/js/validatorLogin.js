@@ -10,19 +10,16 @@ function submit(){
 	var UsPass = $('#UsPass').val();
 	var xml;
 	//Get XML data
-	$.get('xml/users.xml', function(data, textStatus){
+	$.get('users.xml', function(data, textStatus){
 		xml=data;
 		//Find users in XML
-		$(xml).find('users').each(function(){
+		$(xml).find('user').each(function(){
 			var item = $(this);
 			if(item.find('username').text()==UsName&&item.find('password').text()==UsPass)
 			{
 				$('form').submit();
 			}
-			else
-			{
-					$('#error').html('<p>Usuario o contrase&ntilde;a invalido!</p>');
-			}
 		});//End find-users
 	});//End GET XML data
+	//if($('user username').length)
 }

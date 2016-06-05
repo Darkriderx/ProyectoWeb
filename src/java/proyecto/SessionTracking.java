@@ -15,11 +15,9 @@ public class SessionTracking extends HttpServlet {
     {
         PrintWriter out = response.getWriter();
         String UsName = request.getParameter("UsName");
-        String UsPass = request.getParameter("UsPass");
         HttpSession sesion = request.getSession();
-        sesion.setAttribute(UsName, UsPass);
+        sesion.setAttribute("nombreUsuario", UsName);
         String id = sesion.getId();
-        out.println(id);
-        response.sendRedirect("mainPage.html");
+        response.sendRedirect("mainPage");
     }
 }

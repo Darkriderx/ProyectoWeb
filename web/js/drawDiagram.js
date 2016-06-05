@@ -1,7 +1,9 @@
 /*Variables globales porque Fuck da Police*/
 
 var datosRectangulo = []; //Guarda los datos de los rectangulos para su posterior referencia
+var coordenadasLinea = [];
 var posicionRectanguloX = 0;
+var posicionLineaX = 0;
 /*Función principal, encargada de la ejecución de todo el script*/
 
 $(document).ready(function(){
@@ -52,6 +54,7 @@ function siCadaInputEstaLleno()
 	{
 		return false;
 	}
+	return false;
 }
 //Borrar los dibujos del canvas manualmente
 function borrarCanvas()
@@ -59,7 +62,6 @@ function borrarCanvas()
 	$('canvas').clearCanvas();
 	datosRectangulo.splice(0,datosRectangulo.length);
 	posicionRectanguloX=0;
-	console.log('Canvas borrado');
 }
 
 
@@ -90,7 +92,6 @@ function calcularAltura(base1,base2,frec)
 function guardarDatosDeRectangulo(ancho, altura)
 {
 	posicionRectanguloX += ancho*10;
-	console.log(posicionRectanguloX);
 	datosRectangulo.push(
 		{
 			x: posicionRectanguloX, y: 500,
@@ -109,13 +110,45 @@ function dibujarRectangulo(rectanguloActual)
 		width: Rectangulo.width,
 		height: Rectangulo.height,
 		fillStyle: Rectangulo.fillStyle,
+                strokeWidth: 1,
+                strokeStyle: "#FFF"
 	});
 }
 
+//Dibuja las lineas del histograma
+function obtenerCoordenadasLinea()
+{
+    for(var i=0;i<datosRectangulo.length;i++)
+    {
+        coordenadasLinea.push({
+            posicionX: datosRectangulo[i].width, posicionY: 500-(datosRectangulo[i].height/2)
+        });
+    }
+}
+
+function dibujarLinea()
+{
+    posicionLineaX=0;
+   obtenerCoordenadasLinea();
+   var obj = {
+        strokeStyle: 'blue',
+        strokeWidth: 2,
+        rounded: true
+   };
+   for(var i=0;i<coordenadasLinea.length;i++)
+   {
+       posicionLineaX += coordenadasLinea[i].posicionX;
+       console.log(posicionLineaX);
+        obj['x'+(i+1)] = posicionLineaX;
+        obj['y'+(i+1)] = coordenadasLinea[i].posicionY;
+   }
+    $('canvas').drawLine(obj);
+}
 //Crea el diagrama completo
 function crearDiagrama()
 {
-	if(siCadaInputEstaLleno)
+	var todosLosInputEstanLlenos = siCadaInputEstaLleno();
+	if(todosLosInputEstanLlenos)
 	{
 		borrarCanvas();	
 		obtenerDatosInput();
@@ -123,6 +156,7 @@ function crearDiagrama()
 		{
 			dibujarRectangulo(rectanguloActual);
 		}
+            dibujarLinea();
 	}
 	else
 	{

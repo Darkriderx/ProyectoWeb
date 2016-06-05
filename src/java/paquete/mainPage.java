@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto;
+package paquete;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,6 +33,8 @@ public class mainPage extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession sesion = request.getSession();
+        String UsName = request.getParameter("UsName");
+        sesion.setAttribute("nombreUsuario", UsName);
         String nombreUsuario = (String)sesion.getAttribute("nombreUsuario");
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>\n" +
